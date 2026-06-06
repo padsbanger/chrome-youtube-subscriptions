@@ -18,3 +18,15 @@ A small Chrome/Brave extension for reducing YouTube subscription-page clutter wh
 4. Select this project folder.
 
 The extension popup lets you toggle each behavior on or off.
+
+## Development
+
+The extension logic is written in TypeScript under `src/`. The compiled JavaScript files stay at the project root because `manifest.json` loads them directly.
+
+```sh
+npm install
+npm run build
+npm run check
+```
+
+After rebuilding, reload the unpacked extension from the browser extensions page.

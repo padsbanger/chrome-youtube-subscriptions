@@ -1,0 +1,13 @@
+{
+  "name": "youtube-subscriptions-focus",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrome/Brave extension for a focused YouTube subscriptions page.",
+  "scripts": {
+    "build": "tsc --project tsconfig.json && cp build/background.js build/content.js build/popup.js .",
+    "check": "npm run build && jq . manifest.json >/dev/null && node --check background.js && node --check content.js && node --check popup.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
