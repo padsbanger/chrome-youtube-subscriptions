@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Subscriptions Focus</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <header class="header">
+        <div>
+          <h1>Subscriptions Focus</h1>
+          <p>YouTube, with fewer detours.</p>
+        </div>
+      </header>
+
+      <section class="controls" aria-label="Extension settings">
+        <label class="toggle">
+          <span>
+            <strong>Hide Shorts</strong>
+            <small>Remove Shorts shelves, links, and video tiles.</small>
+          </span>
+          <input type="checkbox" data-setting="hideShorts">
+        </label>
+
+        <label class="toggle">
+          <span>
+            <strong>Videos Only</strong>
+            <small>Remove Newest and other inserted subscription sections.</small>
+          </span>
+          <input type="checkbox" data-setting="subscriptionVideosOnly">
+        </label>
+
+        <label class="toggle">
+          <span>
+            <strong>4 Videos Per Row</strong>
+            <small>Show subscription videos in a four-column grid.</small>
+          </span>
+          <input type="checkbox" data-setting="fourAcrossSubscriptions">
+        </label>
+
+        <label class="toggle">
+          <span>
+            <strong>Dim Watched</strong>
+            <small>Fade videos with watched progress overlays.</small>
+          </span>
+          <input type="checkbox" data-setting="dimWatched">
+        </label>
+      </section>
+
+      <button class="primary" type="button" id="openSubscriptions">
+        Open Subscriptions
+      </button>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

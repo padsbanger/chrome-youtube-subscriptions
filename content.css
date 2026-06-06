@@ -1,0 +1,34 @@
+html.ysf-hide-shorts ytd-reel-shelf-renderer,
+html.ysf-hide-shorts ytd-rich-section-renderer:has(a[href*="/shorts"]),
+html.ysf-hide-shorts ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+html.ysf-hide-shorts ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+html.ysf-hide-shorts ytd-video-renderer:has(a[href*="/shorts/"]),
+html.ysf-hide-shorts ytd-rich-item-renderer:has(a[href*="/shorts/"]),
+html.ysf-hide-shorts ytd-grid-video-renderer:has(a[href*="/shorts/"]) {
+  display: none !important;
+}
+
+html.ysf-subscription-videos-only ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer > #contents > ytd-rich-section-renderer,
+.ysf-hidden-subscription-section {
+  display: none !important;
+}
+
+html.ysf-four-across-subscriptions ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+  --ytd-rich-grid-items-per-row: 4 !important;
+  --ytd-rich-grid-posts-per-row: 4 !important;
+  --ytd-rich-grid-slim-items-per-row: 4 !important;
+}
+
+html.ysf-four-across-subscriptions ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
+  margin-bottom: 16px !important;
+}
+
+html.ysf-dim-watched .ysf-watched {
+  opacity: 0.42;
+  transition: opacity 120ms ease;
+}
+
+html.ysf-dim-watched .ysf-watched:hover,
+html.ysf-dim-watched .ysf-watched:focus-within {
+  opacity: 1;
+}

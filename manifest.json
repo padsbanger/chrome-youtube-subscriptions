@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Subscriptions Fixer",
+  "description": "Fix YouTube subscriptions, hide Shorts, and remove Newest section",
+  "version": "0.1.0",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "action": {
+    "default_title": "YouTube Subscriptions Fixer ",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
