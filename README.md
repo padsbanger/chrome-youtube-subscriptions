@@ -1,4 +1,4 @@
-# YouTube Subscriptions Focus
+# YouTube Subscriptions Fixer
 
 A small Chrome/Brave extension for reducing YouTube subscription-page clutter while keeping the normal Home view intact.
 
@@ -27,6 +27,16 @@ The extension logic is written in TypeScript under `src/`. The compiled JavaScri
 npm install
 npm run build
 npm run check
+npm run package
 ```
 
 After rebuilding, reload the unpacked extension from the browser extensions page.
+
+## Chrome Web Store
+
+Run `npm run package` to create `dist/youtube-subscriptions-fixer-0.1.0.zip` for upload. Store listing copy is drafted in `STORE_LISTING.md`, and privacy policy text is drafted in `PRIVACY.md`.
+
+Dashboard image assets are in `store-assets/`:
+
+- `small-promo.png` for the required small promotional tile
+- `screenshot-popup.png` for an initial listing screenshot

@@ -1,11 +1,12 @@
 {
-  "name": "youtube-subscriptions-focus",
+  "name": "youtube-subscriptions-fixer",
   "version": "0.1.0",
   "private": true,
-  "description": "Chrome/Brave extension for a focused YouTube subscriptions page.",
+  "description": "Chrome/Brave extension for a cleaner YouTube subscriptions page.",
   "scripts": {
     "build": "tsc --project tsconfig.json && cp build/background.js build/content.js build/popup.js .",
-    "check": "npm run build && jq . manifest.json >/dev/null && node --check background.js && node --check content.js && node --check popup.js"
+    "check": "npm run build && jq . manifest.json >/dev/null && node --check background.js && node --check content.js && node --check popup.js",
+    "package": "npm run check && mkdir -p dist && rm -f dist/youtube-subscriptions-fixer-0.1.0.zip && zip -r dist/youtube-subscriptions-fixer-0.1.0.zip manifest.json background.js content.js popup.js content.css popup.css popup.html icons README.md PRIVACY.md"
   },
   "devDependencies": {
     "typescript": "^5.9.3"
