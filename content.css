@@ -13,13 +13,31 @@ html.ysf-subscription-videos-only ytd-browse[page-subtype="subscriptions"] ytd-r
   display: none !important;
 }
 
-html.ysf-four-across-subscriptions ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+html[data-ysf-grid-columns="3"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+  --ytd-rich-grid-items-per-row: 3 !important;
+  --ytd-rich-grid-posts-per-row: 3 !important;
+  --ytd-rich-grid-slim-items-per-row: 3 !important;
+}
+
+html[data-ysf-grid-columns="4"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
   --ytd-rich-grid-items-per-row: 4 !important;
   --ytd-rich-grid-posts-per-row: 4 !important;
   --ytd-rich-grid-slim-items-per-row: 4 !important;
 }
 
-html.ysf-four-across-subscriptions ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
+html[data-ysf-grid-columns="5"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+  --ytd-rich-grid-items-per-row: 5 !important;
+  --ytd-rich-grid-posts-per-row: 5 !important;
+  --ytd-rich-grid-slim-items-per-row: 5 !important;
+}
+
+html[data-ysf-grid-columns="6"] ytd-browse[page-subtype="subscriptions"] ytd-rich-grid-renderer {
+  --ytd-rich-grid-items-per-row: 6 !important;
+  --ytd-rich-grid-posts-per-row: 6 !important;
+  --ytd-rich-grid-slim-items-per-row: 6 !important;
+}
+
+html[data-ysf-grid-columns] ytd-browse[page-subtype="subscriptions"] ytd-rich-item-renderer {
   margin-bottom: 16px !important;
 }
 

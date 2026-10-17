@@ -6,7 +6,7 @@ A small Chrome/Brave extension for reducing YouTube subscription-page clutter wh
 
 - Hides Shorts shelves, sidebar entries, and Shorts video tiles
 - Removes inserted subscription sections like Newest and Most relevant
-- Displays subscription videos in a four-column grid
+- Choose videos per row (Auto, 3–6) in the subscriptions grid
 - Optionally dims watched videos
 - Stores settings with Chrome sync storage
 

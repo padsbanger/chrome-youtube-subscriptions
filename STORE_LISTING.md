@@ -6,7 +6,7 @@ YouTube Subscriptions Fixer
 
 ## Short Description
 
-Clean up YouTube Subscriptions by hiding Shorts, removing inserted sections, and showing four videos per row.
+Clean up YouTube Subscriptions by hiding Shorts, removing inserted sections, and choosing videos per row.
 
 ## Detailed Description
 
@@ -16,7 +16,7 @@ Features:
 
 - Hide Shorts shelves, sidebar links, and Shorts video tiles
 - Remove inserted subscription sections such as Newest and Most relevant
-- Display subscription videos in a four-column grid
+- Choose how many videos to display per row (Auto, 3–6)
 - Dim watched videos so new items are easier to scan
 - Keep YouTube Home working normally
 

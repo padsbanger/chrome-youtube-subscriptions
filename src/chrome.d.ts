@@ -8,6 +8,7 @@ interface ChromeStorageChange<T = unknown> {
 interface ChromeStorageArea {
   get<T extends Record<string, unknown>>(defaults: T): Promise<Partial<T>>;
   get(keys: string[]): Promise<Record<string, unknown>>;
+  remove(keys: string[]): Promise<void>;
   set(items: Record<string, unknown>): Promise<void>;
 }
 

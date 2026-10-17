@@ -34,10 +34,16 @@
 
         <label class="toggle">
           <span>
-            <strong>4 Videos Per Row</strong>
-            <small>Show subscription videos in a four-column grid.</small>
+            <strong>Videos Per Row</strong>
+            <small>Set how many subscription videos appear per row.</small>
           </span>
-          <input type="checkbox" data-setting="fourAcrossSubscriptions">
+          <select data-setting="gridColumns">
+            <option value="0">Auto</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
         </label>
 
         <label class="toggle">

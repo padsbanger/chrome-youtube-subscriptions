@@ -3,24 +3,60 @@
     const DEFAULT_SETTINGS = {
         hideShorts: true,
         subscriptionVideosOnly: true,
-        fourAcrossSubscriptions: true,
+        gridColumns: 4,
         dimWatched: true
     };
-    const inputs = [...document.querySelectorAll("[data-setting]")];
+    const VALID_GRID_COLUMNS = [0, 3, 4, 5, 6];
+    function isValidGridColumns(value) {
+        return typeof value === "number" && VALID_GRID_COLUMNS.includes(value);
+    }
+    function readBoolean(saved, key, fallback) {
+        return typeof saved[key] === "boolean" ? saved[key] : fallback;
+    }
+    function readGridColumns(saved) {
+        if (isValidGridColumns(saved.gridColumns))
+            return saved.gridColumns;
+        if (saved.fourAcrossSubscriptions === true)
+            return 4;
+        if (saved.fourAcrossSubscriptions === false)
+            return 0;
+        return DEFAULT_SETTINGS.gridColumns;
+    }
+    const controls = [...document.querySelectorAll("[data-setting]")];
     const openSubscriptionsButton = document.querySelector("#openSubscriptions");
     init();
     async function init() {
+        const saved = await chrome.storage.sync.get([
+            ...Object.keys(DEFAULT_SETTINGS),
+            "fourAcrossSubscriptions"
+        ]);
         const settings = {
-            ...DEFAULT_SETTINGS,
-            ...(await chrome.storage.sync.get(DEFAULT_SETTINGS))
+            hideShorts: readBoolean(saved, "hideShorts", DEFAULT_SETTINGS.hideShorts),
+            subscriptionVideosOnly: readBoolean(saved, "subscriptionVideosOnly", DEFAULT_SETTINGS.subscriptionVideosOnly),
+            gridColumns: readGridColumns(saved),
+            dimWatched: readBoolean(saved, "dimWatched", DEFAULT_SETTINGS.dimWatched)
         };
-        inputs.forEach((input) => {
-            const key = input.dataset.setting;
-            if (!key || !isSettingKey(key))
+        controls.forEach((control) => {
+            const key = control.dataset.setting;
+            if (!key)
                 return;
-            input.checked = settings[key];
-            input.addEventListener("change", async () => {
-                await chrome.storage.sync.set({ [key]: input.checked });
+            if (control instanceof HTMLSelectElement) {
+                if (key !== "gridColumns")
+                    return;
+                control.value = String(settings.gridColumns);
+                control.addEventListener("change", async () => {
+                    const value = Number(control.value);
+                    if (!VALID_GRID_COLUMNS.includes(value))
+                        return;
+                    await chrome.storage.sync.set({ gridColumns: value });
+                });
+                return;
+            }
+            if (!isBooleanSettingKey(key))
+                return;
+            control.checked = settings[key];
+            control.addEventListener("change", async () => {
+                await chrome.storage.sync.set({ [key]: control.checked });
             });
         });
         openSubscriptionsButton?.addEventListener("click", async () => {
@@ -28,7 +64,7 @@
             window.close();
         });
     }
-    function isSettingKey(key) {
-        return key in DEFAULT_SETTINGS;
+    function isBooleanSettingKey(key) {
+        return key === "hideShorts" || key === "subscriptionVideosOnly" || key === "dimWatched";
     }
 })();

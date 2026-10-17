@@ -8,7 +8,7 @@ YouTube Subscriptions Fixer is a browser extension that changes the way the YouT
 
 The extension does not collect, sell, rent, or transmit personal information.
 
-The extension stores your feature preferences, such as whether to hide Shorts or show four videos per row, using Chrome storage. If Chrome sync is enabled in your browser, Chrome may sync those settings through your Google account according to your browser settings.
+The extension stores your feature preferences, such as whether to hide Shorts or how many videos to show per row, using Chrome storage. If Chrome sync is enabled in your browser, Chrome may sync those settings through your Google account according to your browser settings.
 
 ## YouTube Page Access
 
