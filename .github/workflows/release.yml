@@ -62,10 +62,11 @@ jobs:
       - name: Package
         env:
           VERSION: ${{ steps.version.outputs.version }}
-        run: zip "youtube-subscriptions-fixer-${VERSION}.zip" \
-          manifest.json background.js content.js popup.js \
-          content.css popup.css popup.html \
-          icons README.md PRIVACY.md
+        run: |
+          zip -r "youtube-subscriptions-fixer-${VERSION}.zip" \
+            manifest.json background.js content.js popup.js \
+            content.css popup.css popup.html \
+            icons README.md PRIVACY.md
 
       - name: Create GitHub release
         env:
